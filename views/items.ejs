@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Quantity</th>
+      <th>Operate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.map(item => { %>
+    <tr>
+      <td><h2><%= item.name %></h2></td>
+      <td><p><%= item.description %></p></td>
+      <td>
+        <img
+          src="http://localhost:3000<%= item.thumbnail_url %>"
+          alt="<%= item.name %>"
+        />
+      </td>
+      <td><p><%= item.quantity %></p></td>
+      <td>
+        <button type="button">Update</button>
+        <button type="button">Delete</button>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

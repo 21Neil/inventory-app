@@ -1,0 +1,11 @@
+<section>
+  <ul>
+    <% categories.map(category => { %>
+    <li>
+      <button>
+        <a href="/category/<%= category.id %>"><%= category.name %></a>
+      </button>
+    </li>
+    <% }) %>
+  </ul>
+</section>

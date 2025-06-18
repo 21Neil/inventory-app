@@ -21,8 +21,8 @@ const SQL = `
   VALUES ('塔羅牌'),
   ('水晶球');
   INSERT INTO items (name, description, quantity, thumbnail_url, img_url, category_id)
-  VALUES ('史密斯偉特無邊塔羅', '經典的偉特塔羅，適合初學者', 3, '/image/smith-waite-borderless-thumbnail.jpeg', '/image/smith-waite-borderless.jpeg', 1),
-  ('白水晶球', '化煞 生財 擋煞', 5, '/image/crystal-thumbnail.jpeg', '/image/crystal.jpeg', 2);
+  VALUES ('史密斯偉特無邊塔羅', '經典的偉特塔羅，適合初學者', 3, '/images/smith-waite-borderless-thumbnail.jpeg', '/images/smith-waite-borderless.jpeg', 1),
+  ('白水晶球', '化煞 生財 擋煞', 5, '/images/crystal-thumbnail.jpeg', '/images/crystal.jpeg', 2);
 `;
 
 const main = async () => {

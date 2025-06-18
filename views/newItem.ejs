@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/items/new" enctype="multipart/form-data" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required />
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description" required />
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="quantity" required />
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" required />
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <% categories.map(category => { %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+        <%}) %>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <button type="button"><a href="/">Back</a></button>
+  </body>
+</html>

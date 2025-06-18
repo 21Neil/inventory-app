@@ -24,4 +24,14 @@ const createItem = async ({
   );
 };
 
-export { getAllItems, getAllCategories, createItem };
+const getItemByCategory = async (id) => {
+  const result = await pool.query('SELECT * FROM items WHERE category_id = $1', [id])
+  return result.rows
+}
+
+const getCategoryById = async (id) => {
+  const result = await pool.query('SELECT * FROM categories WHERE id = $1', [id])
+  return result.rows
+}
+
+export { getAllItems, getAllCategories, createItem, getItemByCategory, getCategoryById };

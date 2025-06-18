@@ -10,6 +10,7 @@ const getNewItemView = async (req, res) => {
 };
 
 const postNewItem = async (req, res) => {
+  console.log(req.body)
   const getPath = name =>
     '/images/' + name + '.' + req.file.mimetype.split('/')[1];
 

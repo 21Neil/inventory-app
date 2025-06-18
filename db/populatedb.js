@@ -2,8 +2,8 @@ import { Client } from 'pg';
 import 'dotenv/config';
 
 const SQL = `
-  DROP TABLE items;
-  DROP TABLE categories;
+  DROP TABLE IF EXISTS items;
+  DROP TABLE IF EXISTS categories;
   CREATE TABLE IF NOT EXISTS items (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(50),
@@ -28,7 +28,7 @@ const SQL = `
 const main = async () => {
   console.log('seeding...');
   const client = new Client({
-    connectionString: process.env.DATABASE,
+    connectionString: process.env.DATABASE_URL,
   });
   await client.connect();
   await client.query(SQL);

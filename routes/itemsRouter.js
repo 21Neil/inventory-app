@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getNewItemView, postNewItem } from '../controllers/itemController.js';
+import { getNewItemView, postNewItem } from '../controllers/itemsController.js';
 import multer from 'multer'
 
 const storage = multer.memoryStorage()

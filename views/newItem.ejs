@@ -17,7 +17,7 @@
       <label for="image">Image</label>
       <input type="file" name="image" id="image" required />
       <label for="category">Category</label>
-      <select name="category" id="category" required>
+      <select name="category_id" id="category" required>
         <% categories.map(category => { %>
         <option value="<%= category.id %>"><%= category.name %></option>
         <%}) %>

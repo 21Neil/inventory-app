@@ -4,9 +4,9 @@ import multer from 'multer'
 
 const storage = multer.memoryStorage()
 const upload = multer({ storage: storage })
-const itemRouter = Router();
+const itemsRouter = Router();
 
-itemRouter.get('/new', getNewItemView);
-itemRouter.post('/new', upload.single('image'), postNewItem);
+itemsRouter.get('/new', getNewItemView);
+itemsRouter.post('/new', upload.single('image'), postNewItem);
 
-export default itemRouter;
+export default itemsRouter;

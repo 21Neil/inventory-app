@@ -23,7 +23,7 @@
       <label for="category">Category</label>
       <select name="category_id" id="category" required>
         <% categories.map(category => { %>
-        <option value="<%= category.id %>" <%= locals.item && category.id === item.id && 'selected' %>><%= category.name %></option>
+        <option value="<%= category.id %>" <%= locals.item && category.id === item.category_id && 'selected' %>><%= category.name %></option>
         <%}) %>
       </select>
       <button type="submit">Submit</button>

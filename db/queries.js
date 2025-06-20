@@ -80,8 +80,23 @@ const updateImgById = async (id, extension) => {
 };
 
 const deleteItem = async id => {
-  await pool.query('DELETE FROM items WHERE id=$1', [id])
+  await pool.query('DELETE FROM items WHERE id=$1', [id]);
 };
+
+const deleteImg = async id => {
+  await pool.query('DELETE FROM images WHERE id=$1', [id]);
+};
+
+const deleteCategory = async id => {
+  await pool.query('UPDATE items SET category_id=1 WHERE category_id=$1;', [
+    id,
+  ]);
+  await pool.query('DELETE FROM categories WHERE id=$1', [id]);
+};
+
+const createCategory = async name => {
+  await pool.query('INSERT INTO categories (name) VALUES ($1)', [name])
+}
 
 export {
   getAllItems,
@@ -93,5 +108,8 @@ export {
   updateItemById,
   createImg,
   updateImgById,
-  deleteItem
+  deleteItem,
+  deleteImg,
+  deleteCategory,
+  createCategory
 };

@@ -21,18 +21,18 @@ const SQL = `
     quantity INTEGER,
     img_id INTEGER references images(id),
     category_id INTEGER references categories(id)
-    );
+  );
 
   INSERT INTO categories (name)
-  VALUES ('塔羅牌'), ('水晶球');
+  VALUES ('其他'), ('塔羅牌'), ('水晶球');
   
   INSERT INTO images (extension)
   VALUES ('jpeg'),
   ('jpeg');
 
   INSERT INTO items (name, description, quantity, img_id, category_id)
-  VALUES ('史密斯偉特無邊塔羅', '經典的偉特塔羅，適合初學者', 3, 1, 1),
-  ('白水晶球', '化煞 生財 擋煞', 5, 2, 2);
+  VALUES ('史密斯偉特無邊塔羅', '經典的偉特塔羅，適合初學者', 3, 1, 2),
+  ('白水晶球', '化煞 生財 擋煞', 5, 2, 3);
 `;
 
 const main = async () => {

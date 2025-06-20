@@ -2,6 +2,7 @@ import sharp from 'sharp';
 import {
   createImg,
   createItem,
+  deleteItem,
   getAllCategories,
   getItemById,
   updateImgById,
@@ -89,4 +90,11 @@ const postUpdateItem = async (req, res) => {
   res.redirect('/');
 };
 
-export { getNewItemView, postNewItem, getUpdateView, postUpdateItem };
+const getDeleteItem = async (req, res) => {
+  const { id } = req.params;
+
+  await deleteItem(id)
+  res.redirect('/')
+}
+
+export { getNewItemView, postNewItem, getUpdateView, postUpdateItem, getDeleteItem };

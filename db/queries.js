@@ -79,6 +79,10 @@ const updateImgById = async (id, extension) => {
   ]);
 };
 
+const deleteItem = async id => {
+  await pool.query('DELETE FROM items WHERE id=$1', [id])
+};
+
 export {
   getAllItems,
   getAllCategories,
@@ -88,5 +92,6 @@ export {
   getItemById,
   updateItemById,
   createImg,
-  updateImgById
+  updateImgById,
+  deleteItem
 };

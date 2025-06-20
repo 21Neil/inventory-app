@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="<%= locals.item ? '/items/update/' + item.id : '/items/new' %>" enctype="multipart/form-data" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= locals.item && item.name %>" required />
+      <label for="description">Description</label>
+      <textarea name="description" id="description" required><%= locals.item && item.description %></textarea>
+      <label for="quantity">Quantity</label>
+      <input type="number" name="quantity" id="quantity" value="<%= locals.item && item.quantity %>" required />
+      <% if (locals.item) { %>
+        <p>當前商品圖片</p>
+        <img src="<%= item.img_url %>" alt="<%= item.name %>">
+      <% } %>
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" <%= !locals.item && 'required' %> />
+      <label for="category">Category</label>
+      <select name="category_id" id="category" required>
+        <% categories.map(category => { %>
+        <option value="<%= category.id %>" <%= locals.item && category.id === item.id && 'selected' %>><%= category.name %></option>
+        <%}) %>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+    <button type="button"><a href="/">Back</a></button>
+  </body>
+</html>

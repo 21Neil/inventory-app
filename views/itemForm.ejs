@@ -26,6 +26,13 @@
         <option value="<%= category.id %>" <%= locals.item && category.id === item.category_id && 'selected' %>><%= category.name %></option>
         <%}) %>
       </select>
+      <% if (locals.item) { %>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+      <% } %> 
+      <% if (locals.error) { %>
+        <span style="color: red;"><%= error %></span>
+      <% } %>
       <button type="submit">Submit</button>
     </form>
     <button type="button"><a href="/">Back</a></button>

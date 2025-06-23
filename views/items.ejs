@@ -21,8 +21,14 @@
       </td>
       <td><p><%= item.quantity %></p></td>
       <td>
-        <button type="button"><a href="items/update/<%= item.id %>">Update</a></button>
-        <button type="button"><a href="items/delete/<%= item.id %>">Delete</a></button>
+        <button type="button">
+          <a href="items/update/<%= item.id %>">Update</a>
+        </button>
+        <form action="items/delete/<%= item.id %>" method="post">
+          <button type="submit">Delete</button>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+        </form>
       </td>
     </tr>
     <% }) %>

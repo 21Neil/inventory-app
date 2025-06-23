@@ -58,11 +58,13 @@ const getUpdateView = async (req, res) => {
   const categories = await getAllCategories();
   const itemArr = await getItemById(req.params.id);
   const item = itemArr[0];
+  const { error } = req.query;
 
   res.render('itemForm', {
     title: 'Update item',
     categories,
     item,
+    error,
   });
 };
 
@@ -81,7 +83,7 @@ const postUpdateItem = async (req, res) => {
   res.redirect('/');
 };
 
-const getDeleteItem = async (req, res) => {
+const postDeleteItem = async (req, res) => {
   const { id } = req.params;
   const image = (await getItemById(id))[0];
 
@@ -107,5 +109,5 @@ export {
   postNewItem,
   getUpdateView,
   postUpdateItem,
-  getDeleteItem,
+  postDeleteItem,
 };
